@@ -1,4 +1,4 @@
-package com.example;
+package com.example.config;
 
 import io.opentelemetry.sdk.OpenTelemetrySdk;
 import io.opentelemetry.sdk.trace.SdkTracerProvider;

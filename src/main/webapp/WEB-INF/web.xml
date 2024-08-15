@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
     <listener>
-        <listener-class>com.example.OpenTelemetryInitializer</listener-class>
+        <listener-class>com.example.config.OpenTelemetryInitializer</listener-class>
     </listener>
 
     <servlet>

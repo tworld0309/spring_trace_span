@@ -1,4 +1,4 @@
-package com.example;
+package com.example.config;
 
 import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.api.trace.Span;

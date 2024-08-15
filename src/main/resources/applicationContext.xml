@@ -17,7 +17,7 @@
 
 
     <mvc:interceptors>
-        <bean class="com.example.TracingInterceptor"/>
+        <bean class="com.example.config.TracingInterceptor"/>
     </mvc:interceptors>
 
     <!-- AOP 설정 -->
