@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:component-scan base-package="com.example" />
+
+
+    <mvc:interceptors>
+        <bean class="com.example.TracingInterceptor"/>
+    </mvc:interceptors>
+
+    <!-- AOP 설정 -->
+    <aop:aspectj-autoproxy />
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>
+                /api/*=myController
+            </value>
+        </property>
+    </bean>
+    <!-- 컨트롤러 빈 정의 -->
+    <bean id="myService" class="com.example.test.service.MyService" />
+    <bean id="myController" class="com.example.test.controller.MyController"/>
+
+    <bean id="starbucksService" class="com.example.jsh.service.StarbucksService" />
+    <bean id="starbucksController" class="com.example.jsh.controller.StarbucksController"/>
+
+
+</beans>
